@@ -14,7 +14,7 @@ class UmbrellaAnalyzer(Analyzer):
         self.query_limit = str(self.get_param('config.query_limit', None, 20))
 
     def umbrella_runreport(self, destination):
-        base_url = "https://reports.api.umbrella.com/v1/organizations/"
+        base_url = "https://reports.api.umbrella.com/v1/organizations"
         url = "{}/{}/destinations/{}/activity?limit={}".format(base_url,self.organization_id,destination,self.query_limit)
         try:
             r = requests.get(url, auth=(self.api_key, self.api_secret))
